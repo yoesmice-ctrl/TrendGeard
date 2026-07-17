@@ -1,4 +1,4 @@
-# TrendGeard
+# TrendGeard.
 TrendGeard.
 
 📊 TrendGear Dashboard.
@@ -90,7 +90,7 @@ Incluyendo:
 
 🛠️ Tecnologías Utilizadas.
 
-Frontend
+Frontend.
 
 - HTML5.
 - CSS3.
@@ -138,7 +138,7 @@ Los datos obtenidos son procesados mediante JavaScript para:
 - Exportar datos.
 
 
-📊 Ejemplo de datos manejados.
+📊 Ejemplo de Datos Manejados.
 
 Cada cliente contiene información como:
 
@@ -173,7 +173,7 @@ git clone URL_DEL_REPOSITORIO
 
 ---
 
-# 👨‍💻 Autor
+# 👨‍💻 Autor.
 
 **Yojhan Vega**
 
