@@ -1,0 +1,1 @@
+export const URL_BASE = "https://trendgear-dashboard-e6b7d-default-rtdb.firebaseio.com/";

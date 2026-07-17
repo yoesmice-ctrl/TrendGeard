@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TrendGear Dashboard.</title>
+
+
+<!-- Font Awesome -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+<!-- CSS -->
+<link rel="stylesheet" href="style.css">
+
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<!-- ================= SIDEBAR ================= -->
+
+<aside class="sidebar">
+
+
+<div class="logo">
+
+<i class="fa-solid fa-store"></i>
+
+<h2>TrendGeard.</h2>
+
+</div>
+
+
+
+<ul>
+
+
+<li class="active" data-section="inicio">
+
+<i class="fa-solid fa-house"></i>
+
+<span>Inicio</span>
+
+</li>
+
+
+
+<li data-section="clientes">
+
+<i class="fa-solid fa-users"></i>
+
+<span>Clientes</span>
+
+</li>
+
+
+
+<li data-section="reportes">
+
+<i class="fa-solid fa-chart-line"></i>
+
+<span>Reportes</span>
+
+</li>
+
+
+
+<li data-section="configuracion">
+
+<i class="fa-solid fa-gear"></i>
+
+<span>Configuración</span>
+
+</li>
+
+
+
+<li data-section="oscuro">
+
+<i class="fa-solid fa-moon"></i>
+
+<span>Modo Oscuro</span>
+
+</li>
+
+
+
+<li data-section="exportar">
+
+<i class="fa-solid fa-file-export"></i>
+
+<span>Exportar CSV</span>
+
+</li>
+
+
+
+<li data-section="informacion">
+
+<i class="fa-solid fa-circle-info"></i>
+
+<span>Información</span>
+
+</li>
+
+
+
+</ul>
+
+
+</aside>
+
+
+
+
+
+<!-- ================= CONTENIDO ================= -->
+
+<main class="content">
+
+
+
+<header class="topbar">
+
+
+<h1>
+
+<i class="fa-solid fa-chart-column"></i>
+
+TrendGear Dashboard
+
+</h1>
+
+
+</header>
+
+
+
+
+
+
+
+<!-- ================= INICIO ================= -->
+
+<section id="inicio">
+
+
+<section class="cards">
+
+
+<div class="card">
+
+<i class="fa-solid fa-users icon-card"></i>
+
+<h2 id="totalClientes">0</h2>
+
+<p>Total Clientes</p>
+
+</div>
+
+
+
+<div class="card">
+
+<i class="fa-solid fa-sack-dollar icon-card"></i>
+
+<h2 id="totalVentas">$0</h2>
+
+<p>Total Ventas</p>
+
+</div>
+
+
+
+
+<div class="card">
+
+<i class="fa-solid fa-crown icon-card"></i>
+
+<h2 id="clientesGold">0</h2>
+
+<p>Miembros Gold</p>
+
+</div>
+
+
+</section>
+
+
+
+
+
+<section class="charts">
+
+
+<div class="chart-card">
+
+
+<h3>
+Clientes por Membresía
+</h3>
+
+
+<canvas id="graficaMembresias"></canvas>
+
+
+</div>
+
+
+
+<div class="chart-card">
+
+
+<h3>
+Ventas por Ciudad
+</h3>
+
+
+<canvas id="graficaCiudades"></canvas>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section id="estadisticas" class="statistics">
+
+
+<div class="stat-card">
+
+<i class="fa-solid fa-trophy"></i>
+
+<h3>Mayor Compra</h3>
+
+<h2 id="mayorCompra">$0</h2>
+
+
+</div>
+
+
+
+
+<div class="stat-card">
+
+<i class="fa-solid fa-box-open"></i>
+
+<h3>Producto Más Vendido</h3>
+
+<h2 id="productoTop">-</h2>
+
+
+</div>
+
+
+
+
+
+<div class="stat-card">
+
+<i class="fa-solid fa-city"></i>
+
+<h3>Ciudad con Más Clientes</h3>
+
+<h2 id="ciudadTop">-</h2>
+
+
+</div>
+
+
+
+
+
+<div class="stat-card">
+
+<i class="fa-solid fa-chart-line"></i>
+
+<h3>Promedio Compra</h3>
+
+<h2 id="promedioCompra">$0</h2>
+
+
+</div>
+
+
+
+</section>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- ================= CLIENTES ================= -->
+
+<section id="clientes" class="clientes-section">
+
+
+
+<section class="search">
+
+
+<input
+type="text"
+id="buscar"
+placeholder="Buscar cliente por nombre, ciudad o producto...">
+
+
+</section>
+
+
+
+
+
+<section class="table-container">
+
+
+<table>
+
+
+<thead>
+
+
+<tr>
+
+
+<th>ID</th>
+
+
+<th id="ordenNombre">
+Nombre
+<i class="fa-solid fa-sort"></i>
+</th>
+
+
+<th id="ordenCiudad">
+Ciudad
+<i class="fa-solid fa-sort"></i>
+</th>
+
+
+<th id="ordenProducto">
+Producto
+<i class="fa-solid fa-sort"></i>
+</th>
+
+
+<th id="ordenValor">
+Valor
+<i class="fa-solid fa-sort"></i>
+</th>
+
+
+<th id="ordenMembresia">
+Membresía
+<i class="fa-solid fa-sort"></i>
+</th>
+
+
+</tr>
+
+
+</thead>
+
+
+
+<tbody id="tablaClientes">
+
+
+</tbody>
+
+
+
+</table>
+
+
+</section>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- ================= REPORTES ================= -->
+
+
+<section id="reportes" class="extra-section">
+
+
+<h2>
+Reportes
+</h2>
+
+
+<p>
+Panel de análisis y reportes de TrendGear.
+</p>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- ================= CONFIGURACION ================= -->
+
+
+<section id="configuracion" class="extra-section">
+
+
+<h2>
+Configuración
+</h2>
+
+
+<p>
+Configuración general del sistema.
+</p>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- ================= INFORMACION ================= -->
+
+
+<section id="informacion" class="extra-section">
+
+
+<h2>
+TrendGear Dashboard
+</h2>
+
+
+<p>
+Sistema de análisis de clientes y ventas.
+</p>
+
+
+<p>
+Desarrollado por Yojhan Vega - 2026
+</p>
+
+
+</section>
+
+
+
+
+
+
+
+<footer>
+
+
+<p>
+
+TrendGear Dashboard © 2026
+
+|
+
+Desarrollado por Yojhan Vega
+
+</p>
+
+
+</footer>
+
+
+
+</main>
+
+
+</div>
+
+
+
+
+
+
+<script type="module" src="app.js"></script>
+
+
+</body>
+
+
+</html>
