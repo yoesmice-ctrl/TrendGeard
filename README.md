@@ -182,7 +182,7 @@ Proyecto desarrollado como práctica de desarrollo web y análisis de datos.
 
 ---
 
-# 📌 Próximas mejoras
+# 📌 Próximas Mejoras.
 
 - Sistema de autenticación de usuarios
 - Roles administrativos
